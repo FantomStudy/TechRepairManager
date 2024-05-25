@@ -1,0 +1,31 @@
+﻿<Page x:Class="WPF.Pages.AddOrderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF.Pages"
+      mc:Ignorable="d" 
+      Title="Order">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="130"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="Submit your application" TextWrapping="WrapWithOverflow" FontSize="30" Margin="0 0 0 15" FontWeight="Bold" Foreground="White"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Content="Describe problem" FontSize="14" Foreground="White"/>
+            <TextBox x:Name="problemBox" Grid.Row="1" Template="{DynamicResource TextBoxRadius}" VerticalAlignment="Stretch" Foreground="White" CaretBrush="White" FontSize="16"/>
+        </Grid>
+        <StackPanel Grid.Row="2">
+            <Label Content="Choose type of problem" FontSize="14" Foreground="White"/>
+            <ComboBox Style="{DynamicResource ComboBoxStyle1}"  x:Name="comboboxServices" Foreground="White" FontSize="20" Margin="0 0 0 15 " />
+            <Button Style="{DynamicResource ButtonStyleRadius}" x:Name="addServiceBtn" Foreground="White" FontSize="20" Content="Create" FontWeight="Bold"/>
+        </StackPanel>
+    </Grid>
+</Page>

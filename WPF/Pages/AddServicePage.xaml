@@ -1,0 +1,33 @@
+﻿<Page x:Class="WPF.Pages.AddServicePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF.Pages"
+      mc:Ignorable="d" 
+      Title="AddService">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="Create Service" FontSize="30" Margin="0 0 0 15" FontWeight="Bold" Foreground="White"/>
+            <Label FontSize="14" Foreground="White" Content="Name"/>
+            <TextBox Template="{DynamicResource TextBoxRadius}" x:Name="serviceName"  Foreground="White" CaretBrush="White" FontSize="16"/>
+            <Label FontSize="14" Foreground="White" Content="Description" />
+            <TextBox Template="{DynamicResource TextBoxRadius}" x:Name="serviceDescription"  Foreground="White" CaretBrush="White" FontSize="16"/>
+            <Label FontSize="14" Foreground="White" Content="Cost"/>
+            <TextBox Template="{DynamicResource TextBoxRadius}" x:Name="serviceCost"  Foreground="White" CaretBrush="White" FontSize="16"/>
+            <Button Style="{DynamicResource ButtonStyleRadius}" x:Name="addServiceBtn" Click="addServiceBtn_Click" Foreground="White" FontSize="20" Content="Create" FontWeight="Bold"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Delete Service" FontSize="30" Margin="0 15" FontWeight="Bold" Foreground="White"/>
+            <Label FontSize="14" Foreground="White" Content="Name"/>
+            <TextBox Template="{DynamicResource TextBoxRadius}" x:Name="delServiceName" Foreground="White" CaretBrush="White" FontSize="16"/>
+            <Label FontSize="14" Foreground="White" Content="Password"/>
+            <TextBox Template="{DynamicResource TextBoxRadius}" x:Name="delServiceCost" Foreground="White" CaretBrush="White" FontSize="16"/>
+            <Button Style="{DynamicResource ButtonStyleRadius}" x:Name="delServiceBtn" Foreground="White" FontSize="20" Content="Delete" FontWeight="Bold"/>
+        </StackPanel>
+    </Grid>
+</Page>

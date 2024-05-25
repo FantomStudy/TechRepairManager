@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Image\Cross.png" />
+    <None Remove="Image\Expand.png" />
+    <None Remove="Image\Fold.png" />
+    <None Remove="Image\Logo.png" />
+    <None Remove="Image\LogoReg.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Image\Cross.png" />
+    <Resource Include="Image\Expand.png" />
+    <Resource Include="Image\Fold.png" />
+    <Resource Include="Image\Logo.png" />
+    <Resource Include="Image\LogoReg.png" />
+  </ItemGroup>
+
+</Project>
