@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WPF.Entity;
 using WPF.JSON;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -19,6 +20,7 @@ namespace WPF
     /// <summary>
     /// Логика взаимодействия для Login.xaml
     /// </summary>
+    
     public partial class Login : Window
     {
         public Login()
@@ -26,7 +28,17 @@ namespace WPF
             InitializeComponent();
             this.Name = "loginWindow";
         }
+        public event EventHandler<UserEventArgs> UserData;
+        public class UserEventArgs : EventArgs
+        {
+            public Users User { get; set; }
 
+            public UserEventArgs(Users user)
+            {
+                User = user;
+            }
+        }
+        
         private void toRegisterBtn_Click(object sender, RoutedEventArgs e)
         {
             Registration regWindow = new Registration();
@@ -65,9 +77,17 @@ namespace WPF
                         mainWindow.Top = 0;
                     }
                     mainWindow.Show();
+                    Users user = new Users(logUserName.Text, logUserPassword.Password);
+                    OnUserData(user);
                     this.Hide();
                 }
+                else { MessageBox.Show("User not exists"); }
             }
+            else { MessageBox.Show("Enter your data"); }
+        }
+        protected virtual void OnUserData(Users user)
+        {
+            UserData?.Invoke(this, new UserEventArgs(user));
         }
     }
 }

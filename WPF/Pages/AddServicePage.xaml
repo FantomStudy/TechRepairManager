@@ -21,8 +21,8 @@
             <TextBox Template="{DynamicResource TextBoxRadius}" x:Name="serviceCost"  Foreground="White" CaretBrush="White" FontSize="16"/>
             <Button Style="{DynamicResource ButtonStyleRadius}" x:Name="addServiceBtn" Click="addServiceBtn_Click" Foreground="White" FontSize="20" Content="Create" FontWeight="Bold"/>
         </StackPanel>
-        <StackPanel Grid.Row="1">
-            <TextBlock Text="Delete Service" FontSize="30" Margin="0 15" FontWeight="Bold" Foreground="White"/>
+        <StackPanel Margin="0 60 0 0" Grid.Row="1">
+            <TextBlock Text="Delete Service" FontSize="30" Margin="0 0 0 15" FontWeight="Bold" Foreground="White"/>
             <Label FontSize="14" Foreground="White" Content="Name"/>
             <TextBox Template="{DynamicResource TextBoxRadius}" x:Name="delServiceName" Foreground="White" CaretBrush="White" FontSize="16"/>
             <Label FontSize="14" Foreground="White" Content="Password"/>

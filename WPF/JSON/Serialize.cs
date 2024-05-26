@@ -19,12 +19,6 @@ namespace WPF.JSON
 {
     public class Serialize
     {
-        private static string _userName;
-        public static string UserName
-        {
-            get { return _userName; }
-            set { _userName = value; }
-        }
         public static void Registration(TextBox login, PasswordBox password)
         {
             Entity.Entity userLog;
@@ -88,7 +82,6 @@ namespace WPF.JSON
 
             if (userExists || adminExists)
             {
-                UserName = login.Text;
                 return true;
             }
             else

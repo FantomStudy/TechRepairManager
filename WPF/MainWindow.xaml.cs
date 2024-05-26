@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.Reflection;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,8 +10,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF.Entity;
 using WPF.JSON;
 using WPF.Pages;
+using static WPF.Login;
 
 namespace WPF
 {
@@ -22,21 +25,25 @@ namespace WPF
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = this;
-            if (UserName.Contains("admin"))
+            Login loginWindow = Application.Current.Windows.OfType<Login>().FirstOrDefault();
+            if (loginWindow != null)
             {
-                Button _adminButton = FindName("adminServiceBtn") as Button;
-                _adminButton.Visibility = Visibility.Visible;
+                loginWindow.UserData += OnUserData;
             }
+
+            //if (.Contains("admin"))
+            //{
+            //    Button _adminButton = FindName("addServiceBtn") as Button;
+            //    _adminButton.Visibility = Visibility.Visible;
+            //}
         }
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
         }
-
-        public string UserName
+        private void OnUserData(object sender, UserEventArgs e)
         {
-            get { return Serialize.UserName; }
+            Users user = e.User;
         }
         private void NavigateToUserOrder(object sender, RoutedEventArgs e)
         {
