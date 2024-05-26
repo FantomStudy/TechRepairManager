@@ -30,20 +30,25 @@ namespace WPF
             {
                 loginWindow.UserData += OnUserData;
             }
-
-            //if (.Contains("admin"))
-            //{
-            //    Button _adminButton = FindName("addServiceBtn") as Button;
-            //    _adminButton.Visibility = Visibility.Visible;
-            //}
         }
-        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            this.DragMove();
-        }
+        public static string CurrentUserName { get; private set; }
         private void OnUserData(object sender, UserEventArgs e)
         {
-            Users user = e.User;
+            Users currentUser = e.User;
+            CurrentUserName = currentUser.UserName;
+            userNameTextBlock.Text += CurrentUserName;
+            bool isAdmin = false;
+            if (CurrentUserName.Contains("admin"))
+            {
+                isAdmin = true;
+            }
+            if (isAdmin)
+            {
+                adminServiceBtn.Visibility = Visibility.Visible;
+                adminRequestBtn.Visibility = Visibility.Visible;
+                userOrderBtn.Visibility = Visibility.Hidden;
+                requestBtn.Visibility = Visibility.Hidden;
+            }
         }
         private void NavigateToUserOrder(object sender, RoutedEventArgs e)
         {
@@ -68,6 +73,14 @@ namespace WPF
         private void NavigateToAdminService(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new AddServicePage());
+        }
+        private void NavigateToApplications(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new Applications());
+        }
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
     }
 }

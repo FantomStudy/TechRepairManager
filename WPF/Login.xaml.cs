@@ -38,7 +38,7 @@ namespace WPF
                 User = user;
             }
         }
-        
+
         private void toRegisterBtn_Click(object sender, RoutedEventArgs e)
         {
             Registration regWindow = new Registration();
@@ -53,11 +53,6 @@ namespace WPF
             }
             regWindow.Show();
             this.Hide();
-        }
-
-        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            this.DragMove();
         }
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
@@ -88,6 +83,10 @@ namespace WPF
         protected virtual void OnUserData(Users user)
         {
             UserData?.Invoke(this, new UserEventArgs(user));
+        }
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
     }
 }

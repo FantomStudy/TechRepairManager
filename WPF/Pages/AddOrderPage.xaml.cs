@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using WPF.Entities;
 using WPF.Entity;
 using WPF.JSON;
+using static WPF.Login;
 
 namespace WPF.Pages
 {
@@ -29,6 +30,13 @@ namespace WPF.Pages
         {
             InitializeComponent();
             Serialize.DisplayCombobox(comboboxServices);
+        }
+        private void addServiceBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (problemBox.Text != "" && comboboxServices.Text != "")
+            {
+                Serialize.AddRequest(MainWindow.CurrentUserName, problemBox, comboboxServices);
+            }   
         }
     }
 }

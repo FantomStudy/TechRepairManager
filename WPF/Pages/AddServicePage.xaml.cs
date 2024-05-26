@@ -24,6 +24,7 @@ namespace WPF.Pages
         public AddServicePage()
         {
             InitializeComponent();
+            Serialize.DisplayCombobox(delComboboxServices);
         }
 
         private void addServiceBtn_Click(object sender, RoutedEventArgs e)
@@ -31,6 +32,14 @@ namespace WPF.Pages
             if (serviceName.Text != "" && serviceDescription.Text != "" && serviceCost.Text != "")
             {
                 Serialize.AddService(serviceName, serviceDescription, serviceCost);
+            }
+        }
+
+        private void delServiceBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (delServiceName.Text != "" && delComboboxServices.Text != "")
+            {
+                Serialize.DeleteRequest(delServiceName, delComboboxServices);
             }
         }
     }

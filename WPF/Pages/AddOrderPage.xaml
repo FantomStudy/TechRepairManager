@@ -25,7 +25,7 @@
         <StackPanel Grid.Row="2">
             <Label Content="Choose type of problem" FontSize="14" Foreground="White"/>
             <ComboBox Style="{DynamicResource ComboBoxStyle1}"  x:Name="comboboxServices" Foreground="White" FontSize="20" Margin="0 0 0 15 " />
-            <Button Style="{DynamicResource ButtonStyleRadius}" x:Name="addServiceBtn" Foreground="White" FontSize="20" Content="Create" FontWeight="Bold"/>
+            <Button Style="{DynamicResource ButtonStyleRadius}" x:Name="addServiceBtn" Click="addServiceBtn_Click" Foreground="White" FontSize="20" Content="Create" FontWeight="Bold"/>
         </StackPanel>
     </Grid>
 </Page>

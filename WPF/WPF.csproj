@@ -28,4 +28,8 @@
     <Resource Include="Image\LogoReg.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Pages\AdminLogic\" />
+  </ItemGroup>
+
 </Project>

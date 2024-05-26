@@ -55,6 +55,10 @@ namespace WPF.JSON
         public static bool CheckUser(TextBox login, PasswordBox password)
         {
             string filePath = "DB.json";
+            if (!File.Exists(filePath))
+            {
+                File.Create(filePath).Close();
+            }
 
             string json = File.ReadAllText(filePath);
             Entity.Entity userLog = JsonConvert.DeserializeObject<Entity.Entity>(json) ?? new Entity.Entity();
@@ -173,6 +177,26 @@ namespace WPF.JSON
                 _entity.Services.Add(new Services(nameBox.Text, descriptionBox.Text, int.Parse(costBox.Text)));
                 MessageBox.Show("The service has been created");
             }
+            string save = JsonConvert.SerializeObject(_entity, Formatting.Indented);
+            File.WriteAllText(filePath, save);
+        }
+        public static void AddRequest(string currentUserName, TextBox descriptionBox, ComboBox comboBox)
+        {
+            string filePath = "DB.json";
+            string json = File.ReadAllText(filePath);
+            Entity.Entity _entity = JsonConvert.DeserializeObject<Entity.Entity>(json) ?? new Entity.Entity();
+            _entity.Requests.Add(new Request(currentUserName, descriptionBox.Text, comboBox.Text, false));
+            MessageBox.Show("The application has been left!");
+            string save = JsonConvert.SerializeObject(_entity, Formatting.Indented);
+            File.WriteAllText(filePath, save);
+        }
+        public static void DeleteRequest(TextBox textBox, ComboBox comboBox)
+        {
+            string filePath = "DB.json";
+            string json = File.ReadAllText(filePath);
+            Entity.Entity _entity = JsonConvert.DeserializeObject<Entity.Entity>(json) ?? new Entity.Entity();
+            _entity.Requests.RemoveAll(r => r.Client == textBox.Text && r.TypeOfService == comboBox.Text);
+            MessageBox.Show("The application has been delete!");
             string save = JsonConvert.SerializeObject(_entity, Formatting.Indented);
             File.WriteAllText(filePath, save);
         }

@@ -15,8 +15,8 @@ namespace WPF.Entities
         public Request(string client, string comment, string typeOfService, bool status)
         {
             Client = client;
-            TypeOfService = comment;
-            Comment = typeOfService;
+            TypeOfService = typeOfService;
+            Comment = comment;
             Status = status;
         }
     }

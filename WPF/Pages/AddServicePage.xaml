@@ -23,11 +23,11 @@
         </StackPanel>
         <StackPanel Margin="0 60 0 0" Grid.Row="1">
             <TextBlock Text="Delete Service" FontSize="30" Margin="0 0 0 15" FontWeight="Bold" Foreground="White"/>
-            <Label FontSize="14" Foreground="White" Content="Name"/>
+            <Label FontSize="14" Foreground="White" Content="Client Name"/>
             <TextBox Template="{DynamicResource TextBoxRadius}" x:Name="delServiceName" Foreground="White" CaretBrush="White" FontSize="16"/>
-            <Label FontSize="14" Foreground="White" Content="Password"/>
-            <TextBox Template="{DynamicResource TextBoxRadius}" x:Name="delServiceCost" Foreground="White" CaretBrush="White" FontSize="16"/>
-            <Button Style="{DynamicResource ButtonStyleRadius}" x:Name="delServiceBtn" Foreground="White" FontSize="20" Content="Delete" FontWeight="Bold"/>
+            <Label FontSize="14" Foreground="White" Content="Type of request"/>
+            <ComboBox Style="{DynamicResource ComboBoxStyle1}"  x:Name="delComboboxServices" Foreground="White" FontSize="20" Margin="0 0 0 15 " />
+            <Button Style="{DynamicResource ButtonStyleRadius}" x:Name="delServiceBtn" Click="delServiceBtn_Click" Foreground="White" FontSize="20" Content="Delete" FontWeight="Bold"/>
         </StackPanel>
     </Grid>
 </Page>

@@ -31,17 +31,15 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <TextBlock x:Name="userNameTextBlock" Grid.Row="0" Text="UserName: " FontSize="14" Margin="15"/>
-                    
-                    <Button x:Name="adminServiceBtn" Style="{DynamicResource LeftMenuBtnStyle}" Click="NavigateToAdminService" Content="Admin Service" Grid.Row="1" Visibility="hidden" Foreground="White" FontSize="20"/>
-                </Grid>
-                <Button Style="{DynamicResource LeftMenuBtnStyle}" Click="NavigateToUserOrder" Grid.Row="1" Content="My orders" Foreground="White" FontSize="20"/>
-                <Button Style="{DynamicResource LeftMenuBtnStyle}" Click="NavigateToOrder" Grid.Row="2" Content="Submit applications" Foreground="White" FontSize="20"/>
+
+                <TextBlock x:Name="userNameTextBlock" Grid.Row="0" Text="UserName: " FontSize="14" Margin="15"/>
+                
+                <Button x:Name="adminServiceBtn" Style="{DynamicResource LeftMenuBtnStyle}" Click="NavigateToAdminService" Content="Admin Service" Grid.Row="1" Visibility="hidden" Foreground="White" FontSize="20"/>
+                <Button x:Name="userOrderBtn" Style="{DynamicResource LeftMenuBtnStyle}" Click="NavigateToUserOrder" Grid.Row="1" Content="My orders" Foreground="White" FontSize="20"/>
+
+                <Button x:Name="adminRequestBtn" Style="{DynamicResource LeftMenuBtnStyle}" Click="NavigateToApplications" Content="Applications" Grid.Row="2" Visibility="hidden" Foreground="White" FontSize="20"/>
+                <Button x:Name="requestBtn" Style="{DynamicResource LeftMenuBtnStyle}" Click="NavigateToOrder" Grid.Row="2" Content="Submit applications" Foreground="White" FontSize="20"/>
+                
                 <Button Style="{DynamicResource LeftMenuBtnStyle}" Click="NavigateToServices" Grid.Row="3" Content="About the services" Foreground="White" FontSize="20"/>
                 <Button Style="{DynamicResource LeftMenuBtnStyle}" Click="NavigateToAbout" Grid.Row="4" Content="About us" Foreground="White" FontSize="20"/>
             </Grid>
