@@ -10,8 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WPF.Entity;
-using WPF.JSON;
+using TechLibrary;
 using WPF.Pages;
 using static WPF.Login;
 

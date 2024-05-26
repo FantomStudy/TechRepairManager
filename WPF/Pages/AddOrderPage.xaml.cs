@@ -14,9 +14,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using WPF.Entities;
-using WPF.Entity;
-using WPF.JSON;
 using static WPF.Login;
 
 namespace WPF.Pages

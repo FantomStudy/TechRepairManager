@@ -8,21 +8,20 @@ using System.Windows.Controls;
 using System.Windows;
 using System.IO;
 using Formatting = Newtonsoft.Json.Formatting;
-using WPF.Entity;
-using WPF.Entities;
+using TechLibrary;
 using System.Drawing;
 using System.Windows.Media;
 using ColorConverter = System.Windows.Media.ColorConverter;
 
 
-namespace WPF.JSON
+namespace WPF
 {
     public class Serialize
     {
         //USER
         public static void Registration(TextBox login, PasswordBox password)
         {
-            Entity.Entity userLog;
+            Entity userLog;
             string filePath = "DB.json";
             if (!File.Exists(filePath))
             {
@@ -30,7 +29,7 @@ namespace WPF.JSON
             }
 
             string json = File.ReadAllText(filePath);
-            userLog = JsonConvert.DeserializeObject<Entity.Entity>(json) ?? new Entity.Entity();
+            userLog = JsonConvert.DeserializeObject<Entity>(json) ?? new Entity();
 
             if (login.Text.Length > 10)
             {
@@ -61,7 +60,7 @@ namespace WPF.JSON
             }
 
             string json = File.ReadAllText(filePath);
-            Entity.Entity userLog = JsonConvert.DeserializeObject<Entity.Entity>(json) ?? new Entity.Entity();
+            Entity userLog = JsonConvert.DeserializeObject<Entity>(json) ?? new Entity();
 
             bool userExists = false;
             bool adminExists = false;
@@ -93,16 +92,16 @@ namespace WPF.JSON
                 return false;
             }
         }
-        
+
         //DISPLAY
         public static void DisplayServices(StackPanel serviceStackPanel)
         {
             string json = File.ReadAllText("DB.json");
-            Entity.Entity _entity = JsonConvert.DeserializeObject<Entity.Entity>(json) ?? new Entity.Entity();
+            Entity _entity = JsonConvert.DeserializeObject<Entity>(json) ?? new Entity();
 
             foreach (Services service in _entity.Services)
             {
-                StackPanel serviceCard = new StackPanel() 
+                StackPanel serviceCard = new StackPanel()
                 {
                     Margin = new Thickness(30)
                 };
@@ -112,9 +111,9 @@ namespace WPF.JSON
                     Background = new SolidColorBrush((System.Windows.Media.Color)ColorConverter.ConvertFromString("#32373B")),
                     CornerRadius = new CornerRadius(10),
                     Margin = new Thickness(0, 0, 0, 20)
-                };    
-                
-                TextBlock nameTextBlock = new TextBlock() 
+                };
+
+                TextBlock nameTextBlock = new TextBlock()
                 {
                     Foreground = Brushes.White,
                     Margin = new Thickness(0, 0, 0, 10),
@@ -125,18 +124,18 @@ namespace WPF.JSON
                 };
                 serviceCard.Children.Add(nameTextBlock);
 
-                TextBlock descriptionTextBlock = new TextBlock() 
+                TextBlock descriptionTextBlock = new TextBlock()
                 {
                     Foreground = Brushes.White,
                     Margin = new Thickness(0, 0, 0, 10),
-                    TextWrapping = TextWrapping.WrapWithOverflow, 
+                    TextWrapping = TextWrapping.WrapWithOverflow,
                     Text = service.Description,
                     FontStyle = FontStyles.Italic,
                     FontSize = 16,
                 };
                 serviceCard.Children.Add(descriptionTextBlock);
 
-                TextBlock costTextBlock = new TextBlock() 
+                TextBlock costTextBlock = new TextBlock()
                 {
                     Foreground = Brushes.White,
                     Text = "Cost: $" + service.Cost.ToString(),
@@ -153,11 +152,11 @@ namespace WPF.JSON
         {
             string filePath = "DB.json";
             string json = File.ReadAllText(filePath);
-            Entity.Entity _entity = JsonConvert.DeserializeObject<Entity.Entity>(json) ?? new Entity.Entity();
+            Entity _entity = JsonConvert.DeserializeObject<Entity>(json) ?? new Entity();
 
             foreach (Request request in _entity.Requests)
             {
-                if(request.Status == false)
+                if (request.Status == false)
                 {
                     StackPanel requestCard = new StackPanel()
                     {
@@ -209,11 +208,11 @@ namespace WPF.JSON
                         Content = "Done",
                         Foreground = Brushes.White,
                         FontSize = 20,
-                        FontWeight= FontWeights.Bold
+                        FontWeight = FontWeights.Bold
                     };
-                    statusBtn.Click += (s, e) => 
-                    { 
-                        request.Status = true; 
+                    statusBtn.Click += (s, e) =>
+                    {
+                        request.Status = true;
                         string save = JsonConvert.SerializeObject(_entity, Formatting.Indented);
                         File.WriteAllText(filePath, save);
                     };
@@ -222,13 +221,13 @@ namespace WPF.JSON
                     serviceStackPanel.Children.Add(border);
                 }
             }
-                
+
         }
         public static void DisplayUserRequest(StackPanel serviceStackPanel, string currentUserName)
         {
             string filePath = "DB.json";
             string json = File.ReadAllText(filePath);
-            Entity.Entity _entity = JsonConvert.DeserializeObject<Entity.Entity>(json) ?? new Entity.Entity();
+            Entity _entity = JsonConvert.DeserializeObject<Entity>(json) ?? new Entity();
 
             foreach (Request request in _entity.Requests)
             {
@@ -281,7 +280,7 @@ namespace WPF.JSON
                     {
                         Foreground = Brushes.White,
                         Margin = new Thickness(0, 0, 0, 10),
-                        Text = "Status: " ,
+                        Text = "Status: ",
                         FontWeight = FontWeights.DemiBold,
                         FontSize = 18
                     };
@@ -301,7 +300,7 @@ namespace WPF.JSON
         {
             string filePath = "DB.json";
             string json = File.ReadAllText(filePath);
-            Entity.Entity _entity = JsonConvert.DeserializeObject<Entity.Entity>(json) ?? new Entity.Entity();
+            Entity _entity = JsonConvert.DeserializeObject<Entity>(json) ?? new Entity();
             foreach (Services services in _entity.Services)
             {
                 ComboBoxItem comboBoxItem = new ComboBoxItem();
@@ -309,13 +308,13 @@ namespace WPF.JSON
                 combobox.Items.Add(comboBoxItem);
             }
         }
-        
+
         //SERVICE
         public static void AddService(TextBox nameBox, TextBox descriptionBox, TextBox costBox)
         {
             string filePath = "DB.json";
             string json = File.ReadAllText(filePath);
-            Entity.Entity _entity = JsonConvert.DeserializeObject<Entity.Entity>(json) ?? new Entity.Entity();
+            Entity _entity = JsonConvert.DeserializeObject<Entity>(json) ?? new Entity();
 
             if (nameBox.Text.Length > 50)
             {
@@ -334,8 +333,8 @@ namespace WPF.JSON
         {
             string filePath = "DB.json";
             string json = File.ReadAllText(filePath);
-            Entity.Entity _entity = JsonConvert.DeserializeObject<Entity.Entity>(json) ?? new Entity.Entity();
-            _entity.Services.RemoveAll(s => s.ServiceName == textBox.Text );
+            Entity _entity = JsonConvert.DeserializeObject<Entity>(json) ?? new Entity();
+            _entity.Services.RemoveAll(s => s.ServiceName == textBox.Text);
             MessageBox.Show("The application has been delete!");
             string save = JsonConvert.SerializeObject(_entity, Formatting.Indented);
             File.WriteAllText(filePath, save);
@@ -346,7 +345,7 @@ namespace WPF.JSON
         {
             string filePath = "DB.json";
             string json = File.ReadAllText(filePath);
-            Entity.Entity _entity = JsonConvert.DeserializeObject<Entity.Entity>(json) ?? new Entity.Entity();
+            Entity _entity = JsonConvert.DeserializeObject<Entity>(json) ?? new Entity();
             _entity.Requests.Add(new Request(currentUserName, descriptionBox.Text, comboBox.Text, false));
             MessageBox.Show("The application has been left!");
             string save = JsonConvert.SerializeObject(_entity, Formatting.Indented);
@@ -356,7 +355,7 @@ namespace WPF.JSON
         {
             string filePath = "DB.json";
             string json = File.ReadAllText(filePath);
-            Entity.Entity _entity = JsonConvert.DeserializeObject<Entity.Entity>(json) ?? new Entity.Entity();
+            Entity _entity = JsonConvert.DeserializeObject<Entity>(json) ?? new Entity();
             _entity.Requests.RemoveAll(r => r.Client == textBox.Text && r.TypeOfService == comboBox.Text);
             MessageBox.Show("The application has been delete!");
             string save = JsonConvert.SerializeObject(_entity, Formatting.Indented);

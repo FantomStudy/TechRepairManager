@@ -11,8 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WPF.Entity;
-using WPF.JSON;
+using TechLibrary;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace WPF
@@ -20,7 +19,7 @@ namespace WPF
     /// <summary>
     /// Логика взаимодействия для Login.xaml
     /// </summary>
-    
+
     public partial class Login : Window
     {
         public Login()

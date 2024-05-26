@@ -21,6 +21,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="TechLibrary">
+      <HintPath>..\..\TechLibrary\TechLibrary\bin\Debug\net8.0\TechLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Image\Cross.png" />
     <Resource Include="Image\Expand.png" />
     <Resource Include="Image\Fold.png" />
