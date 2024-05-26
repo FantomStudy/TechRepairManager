@@ -50,6 +50,7 @@ namespace WPF
                 requestBtn.Visibility = Visibility.Hidden;
             }
         }
+
         private void NavigateToUserOrder(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new UserOrderPage());
@@ -70,14 +71,17 @@ namespace WPF
             MainFrame.Navigate(new AboutUsPage());
         }
 
+        //For Admins
         private void NavigateToAdminService(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new AddServicePage());
+            MainFrame.Navigate(new AdminPage());
         }
         private void NavigateToApplications(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new Applications());
+            MainFrame.Navigate(new Requests());
         }
+
+        //For grag
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();

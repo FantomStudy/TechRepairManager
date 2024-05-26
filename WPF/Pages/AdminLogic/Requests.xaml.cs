@@ -12,17 +12,19 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF.JSON;
 
 namespace WPF.Pages
 {
     /// <summary>
     /// Логика взаимодействия для Applications.xaml
     /// </summary>
-    public partial class Applications : Page
+    public partial class Requests : Page
     {
-        public Applications()
+        public Requests()
         {
             InitializeComponent();
+            Serialize.DisplayRequest(applicationStackPanel);
         }
     }
 }

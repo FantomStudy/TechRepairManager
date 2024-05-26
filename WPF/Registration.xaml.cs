@@ -45,18 +45,18 @@ namespace WPF
                 this.Close();
             }
         }
-
-        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            this.DragMove();
-        }
-
         private void registerBtn_Click(object sender, RoutedEventArgs e)
         {
             if (regUserName.Text != "" && regUserPassword.Password != "")
             {
                 Serialize.Registration(regUserName, regUserPassword);
             }
+        }
+
+        //For grag
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
     }
 }

@@ -19,6 +19,7 @@ namespace WPF.JSON
 {
     public class Serialize
     {
+        //USER
         public static void Registration(TextBox login, PasswordBox password)
         {
             Entity.Entity userLog;
@@ -51,7 +52,6 @@ namespace WPF.JSON
             string reg = JsonConvert.SerializeObject(userLog, Formatting.Indented);
             File.WriteAllText(filePath, reg);
         }
-
         public static bool CheckUser(TextBox login, PasswordBox password)
         {
             string filePath = "DB.json";
@@ -94,6 +94,7 @@ namespace WPF.JSON
             }
         }
         
+        //DISPLAY
         public static void DisplayServices(StackPanel serviceStackPanel)
         {
             string json = File.ReadAllText("DB.json");
@@ -145,8 +146,156 @@ namespace WPF.JSON
                 serviceCard.Children.Add(costTextBlock);
 
                 border.Child = serviceCard;
-                serviceStackPanel.Children.Add(border);
+                serviceStackPanel.Children.Insert(0, border);
             }
+        }
+        public static void DisplayRequest(StackPanel serviceStackPanel)
+        {
+            string filePath = "DB.json";
+            string json = File.ReadAllText(filePath);
+            Entity.Entity _entity = JsonConvert.DeserializeObject<Entity.Entity>(json) ?? new Entity.Entity();
+
+            foreach (Request request in _entity.Requests)
+            {
+                if(request.Status == false)
+                {
+                    StackPanel requestCard = new StackPanel()
+                    {
+                        Margin = new Thickness(30)
+                    };
+
+                    Border border = new Border()
+                    {
+                        Background = new SolidColorBrush((System.Windows.Media.Color)ColorConverter.ConvertFromString("#32373B")),
+                        CornerRadius = new CornerRadius(10),
+                        Margin = new Thickness(0, 0, 0, 20)
+                    };
+
+                    TextBlock clientTextBlock = new TextBlock()
+                    {
+                        Foreground = Brushes.White,
+                        Margin = new Thickness(0, 0, 0, 10),
+                        TextWrapping = TextWrapping.WrapWithOverflow,
+                        Text = request.Client,
+                        FontWeight = FontWeights.DemiBold,
+                        FontSize = 20,
+                    };
+                    requestCard.Children.Add(clientTextBlock);
+
+                    TextBlock descriptionTextBlock = new TextBlock()
+                    {
+                        Foreground = Brushes.White,
+                        Margin = new Thickness(0, 0, 0, 10),
+                        TextWrapping = TextWrapping.WrapWithOverflow,
+                        Text = request.Comment,
+                        FontStyle = FontStyles.Italic,
+                        FontSize = 16,
+                    };
+                    requestCard.Children.Add(descriptionTextBlock);
+
+                    TextBlock typeTextBlock = new TextBlock()
+                    {
+                        Foreground = Brushes.White,
+                        Margin = new Thickness(0, 0, 0, 10),
+                        Text = request.TypeOfService,
+                        FontWeight = FontWeights.DemiBold,
+                        FontSize = 16
+                    };
+                    requestCard.Children.Add(typeTextBlock);
+
+                    Button statusBtn = new Button()
+                    {
+                        Style = (Style)Application.Current.Resources["ButtonStyleRadius"],
+                        Content = "Done",
+                        Foreground = Brushes.White,
+                        FontSize = 20,
+                        FontWeight= FontWeights.Bold
+                    };
+                    statusBtn.Click += (s, e) => 
+                    { 
+                        request.Status = true; 
+                        string save = JsonConvert.SerializeObject(_entity, Formatting.Indented);
+                        File.WriteAllText(filePath, save);
+                    };
+                    requestCard.Children.Add(statusBtn);
+                    border.Child = requestCard;
+                    serviceStackPanel.Children.Add(border);
+                }
+            }
+                
+        }
+        public static void DisplayUserRequest(StackPanel serviceStackPanel, string currentUserName)
+        {
+            string filePath = "DB.json";
+            string json = File.ReadAllText(filePath);
+            Entity.Entity _entity = JsonConvert.DeserializeObject<Entity.Entity>(json) ?? new Entity.Entity();
+
+            foreach (Request request in _entity.Requests)
+            {
+                if (request.Client == currentUserName)
+                {
+                    StackPanel requestCard = new StackPanel()
+                    {
+                        Margin = new Thickness(30)
+                    };
+
+                    Border border = new Border()
+                    {
+                        Background = new SolidColorBrush((System.Windows.Media.Color)ColorConverter.ConvertFromString("#32373B")),
+                        CornerRadius = new CornerRadius(10),
+                        Margin = new Thickness(0, 0, 0, 20)
+                    };
+
+                    TextBlock clientTextBlock = new TextBlock()
+                    {
+                        Foreground = Brushes.White,
+                        Margin = new Thickness(0, 0, 0, 10),
+                        TextWrapping = TextWrapping.WrapWithOverflow,
+                        Text = request.Client,
+                        FontWeight = FontWeights.DemiBold,
+                        FontSize = 20,
+                    };
+                    requestCard.Children.Add(clientTextBlock);
+
+                    TextBlock descriptionTextBlock = new TextBlock()
+                    {
+                        Foreground = Brushes.White,
+                        Margin = new Thickness(0, 0, 0, 10),
+                        TextWrapping = TextWrapping.WrapWithOverflow,
+                        Text = request.Comment,
+                        FontStyle = FontStyles.Italic,
+                        FontSize = 16,
+                    };
+                    requestCard.Children.Add(descriptionTextBlock);
+
+                    TextBlock typeTextBlock = new TextBlock()
+                    {
+                        Foreground = Brushes.White,
+                        Margin = new Thickness(0, 0, 0, 10),
+                        Text = request.TypeOfService,
+                        FontWeight = FontWeights.DemiBold,
+                        FontSize = 16
+                    };
+                    requestCard.Children.Add(typeTextBlock);
+                    TextBlock statusTextBlock = new TextBlock()
+                    {
+                        Foreground = Brushes.White,
+                        Margin = new Thickness(0, 0, 0, 10),
+                        Text = "Status: " ,
+                        FontWeight = FontWeights.DemiBold,
+                        FontSize = 18
+                    };
+                    if (request.Status)
+                    {
+                        statusTextBlock.Text += "DONE!";
+                    }
+                    else { statusTextBlock.Text += "In progress.."; }
+                    requestCard.Children.Add(statusTextBlock);
+                    border.Child = requestCard;
+                    serviceStackPanel.Children.Insert(0, border);
+                }
+            }
+
         }
         public static void DisplayCombobox(ComboBox combobox)
         {
@@ -161,13 +310,14 @@ namespace WPF.JSON
             }
         }
         
+        //SERVICE
         public static void AddService(TextBox nameBox, TextBox descriptionBox, TextBox costBox)
         {
             string filePath = "DB.json";
             string json = File.ReadAllText(filePath);
             Entity.Entity _entity = JsonConvert.DeserializeObject<Entity.Entity>(json) ?? new Entity.Entity();
 
-            if (nameBox.Text.Length > 20)
+            if (nameBox.Text.Length > 50)
             {
                 MessageBox.Show("The name of service must not exceed 20 characters");
                 return;
@@ -180,6 +330,18 @@ namespace WPF.JSON
             string save = JsonConvert.SerializeObject(_entity, Formatting.Indented);
             File.WriteAllText(filePath, save);
         }
+        public static void DeleteService(TextBox textBox)
+        {
+            string filePath = "DB.json";
+            string json = File.ReadAllText(filePath);
+            Entity.Entity _entity = JsonConvert.DeserializeObject<Entity.Entity>(json) ?? new Entity.Entity();
+            _entity.Services.RemoveAll(s => s.ServiceName == textBox.Text );
+            MessageBox.Show("The application has been delete!");
+            string save = JsonConvert.SerializeObject(_entity, Formatting.Indented);
+            File.WriteAllText(filePath, save);
+        }
+
+        //REQUEST
         public static void AddRequest(string currentUserName, TextBox descriptionBox, ComboBox comboBox)
         {
             string filePath = "DB.json";

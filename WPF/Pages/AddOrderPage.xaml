@@ -13,7 +13,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="130"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Row="0" Text="Submit your application" TextWrapping="WrapWithOverflow" FontSize="30" Margin="0 0 0 15" FontWeight="Bold" Foreground="White"/>
+        <TextBlock Grid.Row="0" Text="Submit your request" TextWrapping="WrapWithOverflow" FontSize="30" Margin="0 0 0 15" FontWeight="Bold" Foreground="White"/>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>

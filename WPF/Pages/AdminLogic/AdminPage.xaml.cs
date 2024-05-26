@@ -19,12 +19,12 @@ namespace WPF.Pages
     /// <summary>
     /// Логика взаимодействия для AddService.xaml
     /// </summary>
-    public partial class AddServicePage : Page
+    public partial class AdminPage : Page
     {
-        public AddServicePage()
+        public AdminPage()
         {
             InitializeComponent();
-            Serialize.DisplayCombobox(delComboboxServices);
+            Serialize.DisplayCombobox(delComboboxRequest);
         }
 
         private void addServiceBtn_Click(object sender, RoutedEventArgs e)
@@ -37,9 +37,17 @@ namespace WPF.Pages
 
         private void delServiceBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (delServiceName.Text != "" && delComboboxServices.Text != "")
+            if (delServiceName.Text != "")
             {
-                Serialize.DeleteRequest(delServiceName, delComboboxServices);
+                Serialize.DeleteService(delServiceName);
+            }
+        }
+
+        private void delRequestBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (delRequestName.Text != "" && delComboboxRequest.Text != "")
+            {
+                Serialize.DeleteRequest(delRequestName, delComboboxRequest);
             }
         }
     }

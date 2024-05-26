@@ -84,6 +84,8 @@ namespace WPF
         {
             UserData?.Invoke(this, new UserEventArgs(user));
         }
+
+        //For grag
         private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();
