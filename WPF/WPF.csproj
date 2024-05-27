@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
@@ -21,9 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="TechLibrary">
-      <HintPath>..\..\TechLibrary\TechLibrary\bin\Debug\net8.0\TechLibrary.dll</HintPath>
-    </Reference>
+    <ProjectReference Include="..\..\..\..\Desktop\TechLibrary\TechLibrary\TechLibrary.csproj" />
   </ItemGroup>
 
   <ItemGroup>
