@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>TechLibrary</id>
+    <version>1.0.0</version>
+    <authors>TechLibrary</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net7.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\Users\arzamastsev.dm2177\Desktop\TechLibrary\TechLibrary\bin\Debug\net7.0\TechLibrary.dll" target="lib\net7.0\TechLibrary.dll" />
+  </files>
+</package>

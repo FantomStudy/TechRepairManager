@@ -1,0 +1,11 @@
+D:\Users\arzamastsev.dm2177\Desktop\TechLibrary\TechLibrary\bin\Debug\net7.0\TechLibrary.deps.json
+D:\Users\arzamastsev.dm2177\Desktop\TechLibrary\TechLibrary\bin\Debug\net7.0\TechLibrary.dll
+D:\Users\arzamastsev.dm2177\Desktop\TechLibrary\TechLibrary\bin\Debug\net7.0\TechLibrary.pdb
+D:\Users\arzamastsev.dm2177\Desktop\TechLibrary\TechLibrary\obj\Debug\net7.0\TechLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\Users\arzamastsev.dm2177\Desktop\TechLibrary\TechLibrary\obj\Debug\net7.0\TechLibrary.AssemblyInfoInputs.cache
+D:\Users\arzamastsev.dm2177\Desktop\TechLibrary\TechLibrary\obj\Debug\net7.0\TechLibrary.AssemblyInfo.cs
+D:\Users\arzamastsev.dm2177\Desktop\TechLibrary\TechLibrary\obj\Debug\net7.0\TechLibrary.csproj.CoreCompileInputs.cache
+D:\Users\arzamastsev.dm2177\Desktop\TechLibrary\TechLibrary\obj\Debug\net7.0\TechLibrary.dll
+D:\Users\arzamastsev.dm2177\Desktop\TechLibrary\TechLibrary\obj\Debug\net7.0\refint\TechLibrary.dll
+D:\Users\arzamastsev.dm2177\Desktop\TechLibrary\TechLibrary\obj\Debug\net7.0\TechLibrary.pdb
+D:\Users\arzamastsev.dm2177\Desktop\TechLibrary\TechLibrary\obj\Debug\net7.0\ref\TechLibrary.dll
