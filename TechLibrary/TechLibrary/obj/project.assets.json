@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Users\\arzamastsev.dm2177\\Desktop\\TechLibrary\\TechLibrary\\TechLibrary.csproj",
+      "projectUniqueName": "D:\\Users\\arzamastsev.dm2177\\Source\\Repos\\TechRepairManager1\\TechLibrary\\TechLibrary\\TechLibrary.csproj",
       "projectName": "TechLibrary",
-      "projectPath": "D:\\Users\\arzamastsev.dm2177\\Desktop\\TechLibrary\\TechLibrary\\TechLibrary.csproj",
+      "projectPath": "D:\\Users\\arzamastsev.dm2177\\Source\\Repos\\TechRepairManager1\\TechLibrary\\TechLibrary\\TechLibrary.csproj",
       "packagesPath": "D:\\Users\\arzamastsev.dm2177\\.nuget\\packages\\",
-      "outputPath": "D:\\Users\\arzamastsev.dm2177\\Desktop\\TechLibrary\\TechLibrary\\obj\\",
+      "outputPath": "D:\\Users\\arzamastsev.dm2177\\Source\\Repos\\TechRepairManager1\\TechLibrary\\TechLibrary\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

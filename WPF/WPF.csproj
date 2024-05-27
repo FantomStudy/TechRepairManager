@@ -21,7 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Desktop\TechLibrary\TechLibrary\TechLibrary.csproj" />
+    <Reference Include="TechLibrary">
+      <HintPath>..\TechLibrary\TechLibrary\bin\Debug\net7.0\TechLibrary.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
